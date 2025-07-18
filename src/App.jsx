@@ -6,7 +6,9 @@ function App() {
   return (
     <>
       <Nav />
-      <Hero />
+      <div className="pt-20"> 
+        <Hero />
+      </div>
     </>
   );
 }
