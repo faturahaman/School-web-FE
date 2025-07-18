@@ -1,4 +1,5 @@
 import { GraduationCap, ArrowRight, Triangle } from "lucide-react";
+import Section from "./Section";
 
 function Hero() {
   return (
@@ -65,32 +66,33 @@ function Hero() {
 
         <div>{/* tempat foto */}</div>
       </section>
-      <Section>
-        <div className="flex flex-col items-center w-full">
-          <button className="bg-[#a63c32] text-white px-6 py-2 rounded-full font-semibold mb-4">Tentang kami</button>
-          <h2 className="font-bold text-4xl md:text-5xl text-center mb-4">SMK Unggulan dengan<br /> Kompetensi Tinggi</h2>
-          <p className="text-[#a63c32] text-lg text-center max-w-xl mb-8">
+
+      <Section className="flex justify-center items-end bg-[#f7f7f7]">
+        <div className="w-full max-w-2xl flex flex-col items-center">
+          <span className="bg-[#a63c32] text-white px-6 py-2 rounded-full font-semibold mb-6 md:mb-4 text-base md:text-lg">Tentang kami</span>
+          <h2 className="font-bold text-4xl md:text-5xl text-justify mb-4 leading-tight">SMK Unggulan dengan<br />Kompetensi Tinggi</h2>
+          <p className="text-[#a63c32] text-lg text-left leading-tight max-w-xl mb-8">
             SMK AK Nusa Bangsa adalah sekolah yang telah mencetak ribuan lulusan yang kompeten di bidang teknologi, kimia, dan farmasi. Kami berkomitmen untuk memberikan siswa langsung terjun ke dunia kerja.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-2xl">
-            <div className="border rounded-xl p-5 bg-white shadow-sm flex flex-col items-start">
-              <span className="mb-2">🔬</span>
-              <span className="font-semibold">Sertifikasi Industri</span>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-2xl justify-end">
+            <div className="border rounded-xl p-5 bg-white shadow-md flex flex-col items-start min-h-[120px]">
+              <span className="mb-2 text-2xl">🔬</span>
+              <span className="font-semibold text-base">Sertifikasi Industri</span>
               <p className="text-gray-700 text-sm mt-1">Lulusan mendapat sertifikat kompetensi yang diakui industri</p>
             </div>
-            <div className="border rounded-xl p-5 bg-white shadow-sm flex flex-col items-start">
-              <span className="mb-2">📄</span>
-              <span className="font-semibold">Sertifikasi Industri</span>
+            <div className="border rounded-xl p-5 bg-white shadow-md flex flex-col items-start min-h-[120px]">
+              <span className="mb-2 text-2xl">📄</span>
+              <span className="font-semibold text-base">Sertifikasi Industri</span>
               <p className="text-gray-700 text-sm mt-1">Kurikulum yang disesuaikan dengan kebutuhan dunia kerja</p>
             </div>
-            <div className="border rounded-xl p-5 bg-white shadow-sm flex flex-col items-start">
-              <span className="mb-2">👨‍🏫</span>
-              <span className="font-semibold">Instruktur berpengalaman</span>
+            <div className="border rounded-xl p-5 bg-white shadow-md flex flex-col items-start min-h-[120px]">
+              <span className="mb-2 text-2xl">👨‍🏫</span>
+              <span className="font-semibold text-base">Instruktur berpengalaman</span>
               <p className="text-gray-700 text-sm mt-1">Dibimbing oleh instruktur yang ahli di bidang</p>
             </div>
-            <div className="border rounded-xl p-5 bg-white shadow-sm flex flex-col items-start">
-              <span className="mb-2">🧪</span>
-              <span className="font-semibold">Sertifikasi Industri</span>
+            <div className="border rounded-xl p-5 bg-white shadow-md flex flex-col items-start min-h-[120px]">
+              <span className="mb-2 text-2xl">🧪</span>
+              <span className="font-semibold text-base">Sertifikasi Industri</span>
               <p className="text-gray-700 text-sm mt-1">Fasilitas praktikum lengkap dengan peralatan terkini</p>
             </div>
           </div>
@@ -100,5 +102,4 @@ function Hero() {
   );
 }
 
-import Section from "./Section";
 export default Hero;
