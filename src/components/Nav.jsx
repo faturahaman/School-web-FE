@@ -118,8 +118,19 @@ const RegisterButton = () => (
   </div>
 );
 
+import { useEffect } from "react";
+
 function Nav() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const toggleMenu = () => setIsOpen(!isOpen);
   const closeMenu = () => setIsOpen(false);
@@ -127,71 +138,74 @@ function Nav() {
   return (
     <>
       <style>{customStyles}</style>
-      <nav className="fixed top-0 left-0 w-full z-50 flex md:justify-evenly justify-around flex-shrink-0 items-center h-15 bg-[#e63946] text-white rounded-b-lg shadow-md px-4 py-3">
-      {/* Logo Section */}
-      <div className="flex gap-3 items-center">
-        <img 
-          src={aknb} 
-          alt="Logo AKNB" 
-          className="h-8 w-auto cursor-pointer" 
-        />
-        <h1 className="font-bold md:text-xl text-base">
-          SMK AK Nusa Bangsa
-        </h1>
-      </div>
+      <nav
+        className={`fixed top-0 left-0 w-full z-50 flex md:justify-evenly justify-around flex-shrink-0 items-center h-15 bg-[#e63946] text-white rounded-b-lg shadow-md px-4 py-3 transition-all duration-300 ${isScrolled ? "bg-opacity-80" : "bg-opacity-100"}`}
+        style={{ backgroundColor: isScrolled ? "#e63946cc" : "#e63946" }}
+      >
+        {/* Logo Section */}
+        <div className="flex gap-3 items-center">
+          <img 
+            src={aknb} 
+            alt="Logo AKNB" 
+            className="h-8 w-auto cursor-pointer" 
+          />
+          <h1 className="font-bold md:text-xl text-base">
+            SMK AK Nusa Bangsa
+          </h1>
+        </div>
 
-      {/* Desktop Navigation */}
-      <div className="hidden md:block">
-        <ul className="flex flex-col md:flex-row md:space-x-4 space-y-2 md:space-y-0 mt-4 md:mt-0 text-sm md:text-base">
-          {NAV_ITEMS.map((item) => (
-            <NavItem
-              key={item.href}
-              href={item.href}
-              label={item.label}
-            />
-          ))}
-        </ul>
-      </div>
-
-      {/* Register Button - Desktop Only */}
-      <div className="hidden md:block">
-        <RegisterButton />
-      </div>
-      <AnimatedMenuButton isOpen={isOpen} onClick={toggleMenu} />
-
-      {/* Mobile Navigation */}
-      {isOpen && (
-        <div className="absolute top-full left-0 w-full bg-[#e63946] shadow-md md:hidden z-50 animate-slide-down">
-          <ul className="flex flex-col items-center py-2 space-y-2">
-            {NAV_ITEMS.map((item, index) => (
-              <div 
+        {/* Desktop Navigation */}
+        <div className="hidden md:block">
+          <ul className="flex flex-col md:flex-row md:space-x-4 space-y-2 md:space-y-0 mt-4 md:mt-0 text-sm md:text-base">
+            {NAV_ITEMS.map((item) => (
+              <NavItem
                 key={item.href}
-                className="animate-fade-in-up w-full flex justify-center"
-                style={{ animationDelay: `${index * 50}ms` }}
-              >
-                <MobileNavItem
-                  href={item.href}
-                  label={item.label}
-                  onClick={closeMenu}
-                />
-              </div>
-            ))}
-            {/* Register Button for Mobile */}
-            <div 
-              className="animate-fade-in-up w-full flex justify-center"
-              style={{ animationDelay: `${NAV_ITEMS.length * 50}ms` }}
-            >
-              <MobileNavItem
-                href="/daftar"
-                label="Daftar Sekarang"
-                onClick={closeMenu}
-                isButton={true}
+                href={item.href}
+                label={item.label}
               />
-            </div>
+            ))}
           </ul>
         </div>
-      )}
-    </nav>
+
+        {/* Register Button - Desktop Only */}
+        <div className="hidden md:block">
+          <RegisterButton />
+        </div>
+        <AnimatedMenuButton isOpen={isOpen} onClick={toggleMenu} />
+
+        {/* Mobile Navigation */}
+        {isOpen && (
+          <div className="absolute top-full left-0 w-full bg-[#e63946] shadow-md md:hidden z-50 animate-slide-down">
+            <ul className="flex flex-col items-center py-2 space-y-2">
+              {NAV_ITEMS.map((item, index) => (
+                <div 
+                  key={item.href}
+                  className="animate-fade-in-up w-full flex justify-center"
+                  style={{ animationDelay: `${index * 50}ms` }}
+                >
+                  <MobileNavItem
+                    href={item.href}
+                    label={item.label}
+                    onClick={closeMenu}
+                  />
+                </div>
+              ))}
+              {/* Register Button for Mobile */}
+              <div 
+                className="animate-fade-in-up w-full flex justify-center"
+                style={{ animationDelay: `${NAV_ITEMS.length * 50}ms` }}
+              >
+                <MobileNavItem
+                  href="/daftar"
+                  label="Daftar Sekarang"
+                  onClick={closeMenu}
+                  isButton={true}
+                />
+              </div>
+            </ul>
+          </div>
+        )}
+      </nav>
     </>
   );
 }
