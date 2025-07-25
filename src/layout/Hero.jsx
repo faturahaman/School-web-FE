@@ -29,29 +29,40 @@ function Hero() {
   return (
     <>
       {/* Hero Section */}
-      <section className="px-4 py-8 md:px-8 lg:px-20 md:py-12 bg-white">
-        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
-          {/* Teks */}
-          <div className="w-full lg:w-1/2 text-center lg:text-left">
-            <div className="inline-flex items-center gap-x-2 bg-gray-300 px-3 py-2 md:px-4 rounded-full text-sm md:text-base mb-4">
-              <GraduationCap className="w-4 h-4 md:w-5 md:h-5" />
-              <h3 className="text-sm md:text-lg font-medium">SMK Analis Kimia terdepan!</h3>
-            </div>
+      <section className="relative h-screen">
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0">
+          <img
+            src="/public/sekolah.jpg"
+            alt="Background"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black opacity-60"></div>
+        </div>
 
-            <h1 className="font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight mb-4">
-              Mencetak <br className="hidden sm:block" /> 
-              Tenaga Ahli <br className="hidden sm:block" />
-              <span className="text-red-500">Profesional</span>
-            </h1>
+        {/* Content */}
+        <div className="relative z-10 px-4 md:px-8 lg:px-20 h-full flex items-center">
+          <div className="max-w-7xl mx-auto w-full">
+            <div className="w-full lg:w-1/2 text-center lg:text-left">
+              <div className="inline-flex items-center gap-x-2 bg-red-600/80 px-3 py-2 md:px-4 rounded-full text-sm md:text-base mb-4">
+                <GraduationCap className="w-4 h-4 md:w-5 md:h-5 text-white" />
+                <h3 className="text-sm md:text-lg font-medium text-white">SMK Analis Kimia terdepan!</h3>
+              </div>
 
-            <p className="text-gray-800 text-base md:text-lg max-w-md mx-auto lg:mx-0 mb-6 leading-relaxed">
-              SMK AK Nusa Bangsa adalah sekolah menengah kejuruan yang fokus pada pengembangan kompetensi siswa di bidang teknologi, kimia, dan farmasi untuk siap memasuki dunia kerja
-            </p>
+              <h1 className="font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight mb-4 text-white">
+                Mencetak <br className="hidden sm:block" /> 
+                Tenaga Ahli <br className="hidden sm:block" />
+                <span className="text-red-500">Profesional</span>
+              </h1>
+
+              <p className="text-gray-200 text-base md:text-lg max-w-md mx-auto lg:mx-0 mb-6 leading-relaxed">
+                SMK AK Nusa Bangsa adalah sekolah menengah kejuruan yang fokus pada pengembangan kompetensi siswa di bidang teknologi, kimia, dan farmasi untuk siap memasuki dunia kerja
+              </p>
 
             <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-3 md:gap-4 mb-8">
               <a
                 href="/daftar"
-                className="flex items-center justify-center gap-2 bg-[#e63946] text-white font-bold px-5 py-3 rounded-lg hover:bg-red-700 transition duration-300 text-sm md:text-base"
+                className="flex items-center justify-center gap-2 bg-red-600 text-white font-bold px-5 py-3 rounded-lg hover:bg-red-700 transition duration-300 text-sm md:text-base"
               >
                 Daftar Sekarang
                 <ArrowRight className="w-4 h-4 md:w-5 md:h-5 relative top-[1px]" />
@@ -59,7 +70,7 @@ function Hero() {
 
               <a
                 href="/tour"
-                className="flex items-center justify-center gap-2 bg-white font-bold px-5 py-3 rounded-lg hover:bg-gray-200 transition duration-300 border border-black text-sm md:text-base"
+                className="flex items-center justify-center gap-2 bg-white/10 text-white font-bold px-5 py-3 rounded-lg hover:bg-white/20 transition duration-300 border border-white text-sm md:text-base backdrop-blur-sm"
               >
                 <Triangle className="rotate-90 w-4 h-4 md:w-5 md:h-5" />
                 Virtual Tour
@@ -68,28 +79,20 @@ function Hero() {
 
             <div className="flex justify-center lg:justify-start gap-6 md:gap-8 text-center max-w-sm mx-auto lg:mx-0">
               <div>
-                <h3 className="font-semibold text-2xl md:text-3xl text-gray-900">500+</h3>
-                <p className="text-gray-500 text-sm md:text-base">Siswa aktif</p>
+                <h3 className="font-semibold text-2xl md:text-3xl text-white">500+</h3>
+                <p className="text-gray-300 text-sm md:text-base">Siswa aktif</p>
               </div>
               <div>
-                <h3 className="font-semibold text-2xl md:text-3xl text-gray-900">95%</h3>
-                <p className="text-gray-500 text-sm md:text-base">Tingkat kelulusan</p>
+                <h3 className="font-semibold text-2xl md:text-3xl text-white">95%</h3>
+                <p className="text-gray-300 text-sm md:text-base">Tingkat kelulusan</p>
               </div>
               <div>
-                <h3 className="font-semibold text-2xl md:text-3xl text-gray-900">88%</h3>
-                <p className="text-gray-500 text-sm md:text-base">Langsung bekerja</p>
+                <h3 className="font-semibold text-2xl md:text-3xl text-white">88%</h3>
+                <p className="text-gray-300 text-sm md:text-base">Langsung bekerja</p>
               </div>
             </div>
           </div>
-
-          {/* Gambar */}
-          <div className="w-full lg:w-1/2 mt-8 lg:mt-0">
-            <img
-              src="/public/test1.png"
-              alt="SMK AK Nusa Bangsa"
-              className="rounded-lg shadow-lg w-full h-64 sm:h-80 md:h-96 lg:h-[400px] object-cover mx-auto"
-            />
-          </div>
+        </div>
         </div>
       </section>
 
