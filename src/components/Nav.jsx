@@ -64,9 +64,9 @@ const MobileNavItem = ({ href, label, onClick, isButton = false }) => (
       href={href}
       onClick={onClick}
       className={`block px-4 py-2 transition-colors duration-200 ${
-        isButton 
-          ? 'bg-black text-white rounded-md mx-4 text-center font-bold hover:bg-gray-800' 
-          : 'hover:underline'
+        isButton
+          ? "bg-black text-white rounded-md mx-4 text-center font-bold hover:bg-gray-800"
+          : "hover:underline"
       }`}
     >
       {label}
@@ -83,23 +83,23 @@ const AnimatedMenuButton = ({ isOpen, onClick }) => (
   >
     <div className="w-6 h-5 flex flex-col justify-between items-center relative">
       {/* atas */}
-      <span 
+      <span
         className={`block h-0.5 w-6 bg-white will-change-transform transition-transform duration-300 ease-in-out ${
-          isOpen ? 'rotate-45 translate-y-2' : ''
+          isOpen ? "rotate-45 translate-y-2" : ""
         }`}
       ></span>
-      
+
       {/* tengah */}
-      <span 
+      <span
         className={`block h-0.5 w-6 bg-white transition-opacity duration-300 ease-in-out ${
-          isOpen ? 'opacity-0' : 'opacity-100'
+          isOpen ? "opacity-0" : "opacity-100"
         }`}
       ></span>
-      
+
       {/* bawah */}
-      <span 
+      <span
         className={`block h-0.5 w-6 bg-white will-change-transform transition-transform duration-300 ease-in-out ${
-          isOpen ? '-rotate-45 -translate-y-2' : ''
+          isOpen ? "-rotate-45 -translate-y-2" : ""
         }`}
       ></span>
     </div>
@@ -139,30 +139,26 @@ function Nav() {
     <>
       <style>{customStyles}</style>
       <nav
-        className={`fixed top-0 left-0 w-full z-50 flex md:justify-evenly justify-around flex-shrink-0 items-center h-15 bg-[#e63946] text-white rounded-b-lg shadow-md px-4 py-3 transition-all duration-300 ${isScrolled ? "bg-opacity-80" : "bg-opacity-100"}`}
+        className={`fixed top-0 left-0 w-full z-50 flex md:justify-evenly justify-around flex-shrink-0 items-center bg-[#e63946] text-white rounded-b-lg shadow-md px-4 transition-all duration-300 backdrop-blur-md
+    ${isScrolled ? "py-2 bg-opacity-80" : "py-6 bg-opacity-100"}
+  `}
         style={{ backgroundColor: isScrolled ? "#e63946cc" : "#e63946" }}
       >
         {/* Logo Section */}
         <div className="flex gap-3 items-center">
-          <img 
-            src={aknb} 
-            alt="Logo AKNB" 
-            className="h-8 w-auto cursor-pointer" 
+          <img
+            src={aknb}
+            alt="Logo AKNB"
+            className="h-8 w-auto cursor-pointer"
           />
-          <h1 className="font-bold md:text-xl text-base">
-            SMK AK Nusa Bangsa
-          </h1>
+          <h1 className="font-bold md:text-xl text-base">SMK AK Nusa Bangsa</h1>
         </div>
 
         {/* Desktop Navigation */}
         <div className="hidden md:block">
           <ul className="flex flex-col md:flex-row md:space-x-4 space-y-2 md:space-y-0 mt-4 md:mt-0 text-sm md:text-base">
             {NAV_ITEMS.map((item) => (
-              <NavItem
-                key={item.href}
-                href={item.href}
-                label={item.label}
-              />
+              <NavItem key={item.href} href={item.href} label={item.label} />
             ))}
           </ul>
         </div>
@@ -178,7 +174,7 @@ function Nav() {
           <div className="absolute top-full left-0 w-full bg-[#e63946] shadow-md md:hidden z-50 animate-slide-down">
             <ul className="flex flex-col items-center py-2 space-y-2">
               {NAV_ITEMS.map((item, index) => (
-                <div 
+                <div
                   key={item.href}
                   className="animate-fade-in-up w-full flex justify-center"
                   style={{ animationDelay: `${index * 50}ms` }}
@@ -191,7 +187,7 @@ function Nav() {
                 </div>
               ))}
               {/* Register Button for Mobile */}
-              <div 
+              <div
                 className="animate-fade-in-up w-full flex justify-center"
                 style={{ animationDelay: `${NAV_ITEMS.length * 50}ms` }}
               >
