@@ -34,7 +34,7 @@ function Hero() {
         {/* Background Image with Overlay */}
         <div className="absolute inset-0">
           <img
-            src="/public/sekolah.jpg"
+            src="/public/sekolah.webp"
             alt="Background"
             className="w-full h-full object-cover"
           />
@@ -98,7 +98,7 @@ function Hero() {
       </section>
 
       {/* About Section */}
-      <Section className="bg-[#f7f7f7] px-4 py-12 md:px-8 lg:px-20">
+      <section className="bg-[#f7f7f7] px-4 py-12 md:px-8 lg:px-20">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
           {/* Gambar - Mobile first, Desktop second */}
           <div className="w-full lg:w-1/2 order-2 lg:order-1">
@@ -111,7 +111,7 @@ function Hero() {
           {/* Templating dengan komponen TentangKamiSection */}
           <TentangKamiSection cards={tentangKamiCards} />
         </div>
-      </Section>
+      </section>
     </>
   );
 }
