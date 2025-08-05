@@ -1,6 +1,7 @@
 import { GraduationCap, ArrowRight, Triangle } from "lucide-react";
 import Section from "./Section";
 import TentangKamiSection from "../components/TentangKamiSection";
+import ProgramKeahlianSection from "../components/ProgramKeahlianSection";
 
 function Hero() {
   const tentangKamiCards = [
@@ -112,6 +113,8 @@ function Hero() {
           <TentangKamiSection cards={tentangKamiCards} />
         </div>
       </section>
+      {/* Program Keahlian Section */}
+    <ProgramKeahlianSection />
     </>
   );
 }
