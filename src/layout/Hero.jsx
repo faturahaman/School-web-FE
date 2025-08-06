@@ -1,5 +1,5 @@
 import { GraduationCap, ArrowRight, Triangle } from "lucide-react";
-import Section from "./Section";
+// import Section from "./Section";
 import TentangKamiSection from "../components/TentangKamiSection";
 import ProgramKeahlianSection from "../components/ProgramKeahlianSection";
 
@@ -32,7 +32,6 @@ function Hero() {
     <>
       {/* Hero Section */}
       <section className="relative h-screen">
-        {/* Background Image with Overlay */}
         <div className="absolute inset-0">
           <img
             src="/public/sekolah.webp"
@@ -109,11 +108,9 @@ function Hero() {
               className="rounded-lg shadow-lg w-full h-64 sm:h-80 md:h-96 lg:h-[400px] object-cover"
             />
           </div>
-          {/* Templating dengan komponen TentangKamiSection */}
           <TentangKamiSection cards={tentangKamiCards} />
         </div>
       </section>
-      {/* Program Keahlian Section */}
     <ProgramKeahlianSection />
     </>
   );
